@@ -23,15 +23,15 @@ class Shopform extends Component {
         super(props)
         this.state = {
             name: null,
-            shopname: null,
-            gstno: null,
+            // shopname: null,
+            // gstno: null,
             phono: null,
             email: null,
             password: null,
             formErrors: {
                 name: "",
-                shopname: "",
-                gstno: "",
+                // shopname: "",
+                // gstno: "",
                 phono: "",
                 email: "",
                 password: ""
@@ -46,13 +46,13 @@ class Shopform extends Component {
         if (formValid(this.state)) {
             const shop = {
                 name: this.state.name,
-                shopname: this.state.shopname,
-                gstno: this.state.gstno,
+                // shopname: this.state.shopname,
+                // gstno: this.state.gstno,
                 phono: this.state.phono,
                 email: this.state.email,
                 password: this.state.password,
-                lat,
-                lng
+                // lat,
+                // lng
             }
             console.log(shop);
             axios.post('http://localhost:5000/shopsreg/add', shop)
@@ -77,12 +77,12 @@ class Shopform extends Component {
             case "name":
                 formErrors.name = value.length < 3 ? "Minimum 3 characters required" : "";
                 break;
-            case "shopname":
-                formErrors.shopname = value.length < 3 ? "Minimum of 3 characters required" : "";
-                break;
-            case "gstno":
-                formErrors.gstno = gstregx.test(value) ? "" : "Invalid GST Number";
-                break;;
+            // case "shopname":
+            //     formErrors.shopname = value.length < 3 ? "Minimum of 3 characters required" : "";
+            //     break;
+            // case "gstno":
+            //     formErrors.gstno = gstregx.test(value) ? "" : "Invalid GST Number";
+            //     break;;
             case "phono":
                 formErrors.phono = value.length === 10 && value === Number ? "Invalid Phone Number" : "";
                 break;

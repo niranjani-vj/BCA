@@ -5,14 +5,14 @@ const shopregSchema = new Schema({
         type:String,
         required:true
     },
-    shopname:{
-        type:String,
-        required:true
-    },
-    gstno:{
-        type:String,
-        required:true
-    },
+    // shopname:{
+    //     type:String,
+    //     required:true
+    // },
+    // gstno:{
+    //     type:String,
+    //     required:true
+    // },
     phono:{
         type:String,
         required:true
@@ -25,9 +25,9 @@ const shopregSchema = new Schema({
         type:String,
         required:true
     },
-   location:{
+//    location:{
 
-   }
+//    }
 },{
     timestamps:true,
 });

@@ -30,19 +30,19 @@ class ShopFemaleDis extends Component {
 
         this.state = {
             category: null,
-            typeofdiscounts: null,
-            brand: null,
+            // typeofdiscounts: null,
+            // brand: null,
             discount: null,
             from: null,
             to: null,
-            Shopname: null,
-            lat: null,
-            lng: null,
+            // Shopname: null,
+            // lat: null,
+            // lng: null,
             formErrors: {
-                brand: "",
-                discount: "",
-                category: "",
-                typeofdiscounts: ""
+                // brand: "",
+                // discount: "",
+                // category: ""
+                // typeofdiscounts: ""
             }
         };
 
@@ -61,24 +61,24 @@ class ShopFemaleDis extends Component {
                 let sd = res.data;
                 console.log(sd[0]['shopname']);
                 const Shopname = sd[0]['shopname'];
-                const lat = sd[0]['location']['lat'];
-                const lng = sd[0]['location']['lng'];
+                // const lat = sd[0]['location']['lat'];
+                // const lng = sd[0]['location']['lng'];
                 this.setState({ Shopname });
-                this.setState({ lat });
-                this.setState({ lng });
+                // this.setState({ lat });
+                // this.setState({ lng });
             });
         //  alert(Owner);
         const disf = {
             Owner,
-            Shopname: this.state.Shopname,
+            // Shopname: this.state.Shopname,
             category: this.state.category,
-            typeofdiscounts: this.state.typeofdiscounts,
-            brand: this.state.brand,
+            // typeofdiscounts: this.state.typeofdiscounts,
+            // brand: this.state.brand,
             discount: this.state.discount,
             from: this.state.from,
-            to: this.state.to,
-            lat: this.state.lat,
-            lng: this.state.lng
+            to: this.state.to
+            // lat: this.state.lat,
+            // lng: this.state.lng
         }
         if (formValid(this.state)) {
             // alert(this.state.shopname);

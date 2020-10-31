@@ -127,8 +127,6 @@ class ShopFemaleDisView extends Component {
                 <tr key={fd._id}>
                     <td>{this.state.count}</td>
                     <td>{category}</td>
-                    <td>{typeofdiscounts}</td>
-                    <td>{brand}</td>
                     <td>{discount}</td>
                     <td>{from.slice(0, 10)}</td>
                     <td>{to.slice(0, 10)}</td>
@@ -145,18 +143,18 @@ class ShopFemaleDisView extends Component {
                 </div>
                 <div>
                     <Table id='fdis' striped bordered hover variant="dark">
-                        <thead><td>NO</td><td>Category</td><td>Discount</td><td>From</td><td>To</td></thead>
+                        <thead><td>NO</td><td>Category</td><td>Price</td><td>From</td><td>To</td></thead>
                         <tbody>
                             {this.renderTable()}
                         </tbody>
                     </Table>
                 </div>
                 <form className="form-group">
-                    <input type="text" placeholder="Enter Id to delete" name="id" onChange={this.handeleChange} /><br />
-                    <button type="submit" className="btn btn-danger" onClick={this.handleDel}>Delete</button>
+                    {/* <input type="text" placeholder="Enter Id to delete" name="id" onChange={this.handeleChange} /><br />
+                    <button type="submit" className="btn btn-danger" onClick={this.handleDel}>Delete</button> */}
                 </form>
                 <div>
-                    <button type="button" className="btn btn-outline-light" onClick={this.handleBack}>Back</button>
+                    <button type="button" className="btn btn-outline-info" onClick={this.handleBack}>Back</button>
                 </div>
             </div>
         )

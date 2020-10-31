@@ -5,22 +5,22 @@ const femaledisSchema = new Schema({
         type:String,
         required:true
     },
-    Shopname:{
-        type:String,
-        required:true
-    },
+    // Shopname:{
+    //     type:String,
+    //     required:true
+    // },
     category:{
         type:String,
         required:true
     },
-    typeofdiscounts:{
-        type:String,
-        required:true
-    },
-    brand:{
-        type:String,
-        required:true
-    },
+    // typeofdiscounts:{
+    //     type:String,
+    //     required:true
+    // },
+    // brand:{
+    //     type:String,
+    //     required:true
+    // },
     discount:{
         type:String,
         required:true
@@ -33,9 +33,9 @@ const femaledisSchema = new Schema({
         type:Date,
         required:true
     },
-    location:{
+    // location:{
 
-    }
+    // }
 },{
     timestamps:true
 });

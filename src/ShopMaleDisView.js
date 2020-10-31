@@ -117,8 +117,6 @@ class ShopMaleDisView extends Component {
                 <tr key={md._id}>
                     <td>{this.state.count}</td>
                     <td>{category}</td>
-                    <td>{typeofdiscounts}</td>
-                    <td>{brand}</td>
                     <td>{discount}</td>
                     <td>{from.slice(0, 10)}</td>
                     <td>{to.slice(0, 10)}</td>
@@ -137,7 +135,7 @@ class ShopMaleDisView extends Component {
                 </div>
                 <div>
                     <Table id='mdis' striped bordered hover variant="dark">
-                        <thead><td>NO</td><td>Category</td><td>Type of Discount</td><td>Brand</td><td>Discount</td><td>From</td><td>To</td></thead>
+                        <thead><td>NO</td><td>Category</td><td>Price</td><td>From</td><td>To</td></thead>
                         <tbody>
                             {this.renderTableData()}
                         </tbody>
@@ -146,11 +144,11 @@ class ShopMaleDisView extends Component {
 
                 </div>
                 <form className="form-group">
-                    <input type="text" placeholder="Enter Id to delete" name="id" onChange={this.handeleChange} />
-                    <button type="button" className="btn btn-danger" onClick={this.handleDel}>Delete</button>
-                </form>
+                    {/* <input type="text" placeholder="Enter Id to delete" name="id" onChange={this.handeleChange} />
+                    <button type="button" className="btn btn-danger" onClick={this.handleDel}>Delete</button> */}
+                </form><br/>
                 <div className="form-group">
-                    <button type="button" className="btn btn-danger" onClick={this.handleBack}>Back</button>
+                    <button type="button"  className="btn btn-info" onClick={this.handleBack}>Back</button>
                 </div>
             </div>
         )

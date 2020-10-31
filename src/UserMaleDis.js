@@ -91,7 +91,7 @@ class UserMaleDis extends Component {
 
                 }
             });
-        this.props.history.push('/usermaledis');
+        this.props.history.push('/userhousekeeping');
 
     }
     handleBack = e => {
@@ -100,11 +100,9 @@ class UserMaleDis extends Component {
     }
     renderTable = e => {
         return this.state.dis.map(ds => {
-            const { Shopname, brand, discount, category, from, to } = ds;
+            const { discount, category, from, to } = ds;
             return (
                 <tr key={ds._id}>
-                    <td>{Shopname}</td>
-                    <td>{brand}</td>
                     <td>{category}</td>
                     <td>{discount}</td>
                     <td>{from.slice(0, 10)}</td>
@@ -117,7 +115,7 @@ class UserMaleDis extends Component {
     render() {
         const diss = this.state.dis.map(ds => (
             <table className="table table-dark" key={ds._id}>
-                <tr><th>Shop name</th><th>Brand</th><th>Category</th><th>Discount</th><th>From</th><th>TO</th></tr>
+                <tr><th>Category</th><th>Discount</th><th>From</th><th>TO</th></tr>
                 <tr><td>{ds.Shopname}</td><td>{ds.brand}</td><td>{ds.category}</td><td>{ds.discount}</td><td>{ds.from.slice(0, 10)}</td><td>{ds.to.slice(0, 10)}</td></tr>
             </table>
         ))

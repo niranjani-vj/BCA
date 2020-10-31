@@ -9,29 +9,29 @@ router.route('/').get((req,res)=>{
 
 router.route('/add').post((req,res)=>{
     const Owner = req.body.Owner;
-    const Shopname = req.body.Shopname;
+    // const Shopname = req.body.Shopname;
     const category = req.body.category;
-    const typeofdiscounts = req.body.typeofdiscounts;
-    const brand = req.body.brand;
+    // const typeofdiscounts = req.body.typeofdiscounts;
+    // const brand = req.body.brand;
     const discount = req.body.discount;
     const from = req.body.from;
     const to = req.body.to;
-    const lat = Number(req.body.lat);
-    const lng =Number(req.body.lng);
-    let data={};
-    data['lat']=lat;
-    data['lng']=lng;
-    const location =data;
+    // const lat = Number(req.body.lat);
+    // const lng =Number(req.body.lng);
+    // let data={};
+    // data['lat']=lat;
+    // data['lng']=lng;
+    // const location =data;
     const newFemalediscount = new Femalediscount({
         Owner,
-        Shopname,
+        // Shopname,
         category,
-        typeofdiscounts,
-        brand,
+        // typeofdiscounts,
+        // brand,
         discount,
         from,
-        to,
-        location
+        to
+        // location
     });
     newFemalediscount.save()
     .then(()=>res.json('Discount Added'))
@@ -53,11 +53,11 @@ router.route('/fdisd').post((req,res)=>{
     .catch(err=>res.res.status(400).json('Error'+err));
 });
 router.route('/dist').post((req,res)=>{
-    let lat =Number(req.body.lat);
-    let lng = Number(req.body.lng);
-    let data ={};
-    data['lat']=lat;
-    data['lng']=lng;
+    // let lat =Number(req.body.lat);
+    // let lng = Number(req.body.lng);
+    // let data ={};
+    // data['lat']=lat;
+    // data['lng']=lng;
    Femalediscount.find({location:{
        $near:{
            $maxDistance:1000,
