@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Nav } from 'react-bootstrap';
 //import {getCurrentDate} from './utils';
 import axios from 'axios';
 const DivStyle = {
@@ -52,6 +53,17 @@ class AdminLogin extends Component {
     render() {
         return (
             <div style={DivStyle}>
+            <Nav className="navbar navbar-expand-sm bg-info navbar-light">
+                    {/* <a className="navbar-brand" href=" "><img src={logo} /></a> */}
+                    <ul className="navbar-nav">
+                        {/* <li className="nav-item">
+                            <a className="nav-link" href="/profreg">Register</a>
+                        </li> */}
+                        <li className="nav-item">
+                            <a className="nav-link" href="/home">Home</a>
+                        </li>
+                    </ul>
+                </Nav>
                 <div className="container">
                     <h1 style={{ textAlign: "center" }}>Login</h1>
                     <form onSubmit={this.handleSubmit}>

@@ -55,7 +55,7 @@ class Shopform extends Component {
                 // lng
             }
             console.log(shop);
-            axios.post('http://localhost:5000/shopsreg/add', shop)
+            axios.post('http://localhost:5000/profreg/add', shop)
                 .then(res => console.log(res.data));
             // console.log(`Submited valid form`);
 
@@ -90,7 +90,7 @@ class Shopform extends Component {
                 formErrors.email = emailRegex.test(value) ? "" : "Invalid Email-id";
                 break;
             case "password":
-                formErrors.password = value.length < 3 ? "Minimum  3 characters required" : "";
+                formErrors.password = value.length < 6 ? "Minimum  6 characters required" : "";
                 break;
             default:
                 break;
@@ -100,8 +100,8 @@ class Shopform extends Component {
     handleClick = e => {
         navigator.geolocation.watchPosition(getposition);
         function getposition(position) {
-            lat = position.coords.latitude;
-            lng = position.coords.longitude;
+            // lat = position.coords.latitude;
+            // lng = position.coords.longitude;
         }
     }
 
@@ -110,7 +110,7 @@ class Shopform extends Component {
         return (
             <div>
                 <Nav className="navbar navbar-expand-sm bg-info navbar-light">
-                    <a className="navbar-brand" href=" "><img src={logo} /></a>
+                    {/* <a className="navbar-brand" href=" "><img src={logo} /></a> */}
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <a className="nav-link" href="/proflogin">Login</a>

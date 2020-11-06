@@ -27,7 +27,7 @@ class ShopMainPage extends Component {
     return (
       <div style={DivStyle}>
         <Nav className="navbar navbar-expand-sm bg-info navbar-light">
-          <a className="navbar-brand" href=" "><img src={logo} /></a>
+          {/* <a className="navbar-brand" href=" "><img src={logo} /></a> */}
           <ul className="navbar-nav">
             <li className="nav-item">
               <a className="nav-link" href="/proflogin">Logout</a>

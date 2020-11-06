@@ -45,7 +45,7 @@ class Shoplogin extends Component {
                 password: this.state.password
             }
             var Owner = this.state.email;
-            axios.post('http://localhost:5000/shopsreg/shoplogin', shop)
+            axios.post('http://localhost:5000/profreg/shoplogin', shop)
                 .then(res => {
                     if (res.data != null) {
                         //alert('Exist');
@@ -80,7 +80,7 @@ class Shoplogin extends Component {
         return (
             <div style={DivStyle}>
                 <Nav className="navbar navbar-expand-sm bg-info navbar-light">
-                    <a className="navbar-brand" href=" "><img src={logo} /></a>
+                    {/* <a className="navbar-brand" href=" "><img src={logo} /></a> */}
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <a className="nav-link" href="/profreg">Register</a>

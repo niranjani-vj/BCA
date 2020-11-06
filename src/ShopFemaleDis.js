@@ -54,7 +54,7 @@ class ShopFemaleDis extends Component {
         params.append('email', Owner);
         axios({
             method: 'post',
-            url: 'http://localhost:5000/shopsreg/det',
+            url: 'http://localhost:5000/profreg/det',
             data: params
         })
             .then(res => {
@@ -84,7 +84,7 @@ class ShopFemaleDis extends Component {
             // alert(this.state.shopname);
             console.log(disf);
             console.log('Form is valid');
-            axios.post('http://localhost:5000/femaledis/add', disf)
+            axios.post('http://localhost:5000/profchef/add', disf)
                 .then(res => console.log(res.data));
             alert("Added!")
         }

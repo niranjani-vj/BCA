@@ -22,13 +22,13 @@ class AdminShopDis extends Component {
     }
     handleMen = e => {
         e.preventDefault();
-        axios.get('http://localhost:5000/maledis/')
+        axios.get('http://localhost:5000/profhousekeeping/')
             .then(res => {
                 const mdis = res.data;
                 console.log(mdis);
                 this.setState({ mdis });
             });
-        axios.get('http://localhost:5000/femaledis/')
+        axios.get('http://localhost:5000/profchef/')
             .then(res => {
                 const fdis = res.data;
                 console.log(fdis);

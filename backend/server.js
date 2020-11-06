@@ -20,18 +20,18 @@ connection.once('open',()=>{
     console.log("Mongodb Connected!....")
 })
 const usersregRouter = require('./router/usersreg');
-const shopsregRouter = require('./router/shopsreg');
+const shopsregRouter = require('./router/profreg');
 const samsRouter = require('./router/Sams');
 const dasRouter = require('./router/Das');
-const malediscountsRouter = require('./router/Malediscounts');
-const femalediscountsRouter = require('./router/Femalediscounts');
+const malediscountsRouter = require('./router/profhousekeeping');
+const femalediscountsRouter = require('./router/profchef');
 const mapRouter = require('./router/Maps');
 app.use('/usersreg',usersregRouter);
-app.use('/shopsreg',shopsregRouter);
+app.use('/profreg',shopsregRouter);
 app.use('/samsreg',samsRouter);
 app.use('/dasreg',dasRouter);
-app.use('/maledis',malediscountsRouter);
-app.use('/femaledis',femalediscountsRouter);
+app.use('/profhousekeeping',malediscountsRouter);
+app.use('/profchef',femalediscountsRouter);
 app.use('/mapu',mapRouter);
 app.listen(port,()=>{ 
     console.log(`Server is connected to the posrt:${port}`);

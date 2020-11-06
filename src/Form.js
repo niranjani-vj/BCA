@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import { Nav } from 'react-bootstrap';
-import logo from './logo2.jpg';
+// import logo from './logo2.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const emailRegex = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 const formValid = ({ formErrors, ...rest }) => {
@@ -86,7 +86,7 @@ class Form extends Component {
     return (
       <div>
         <Nav className="navbar navbar-expand-sm bg-info navbar-light">
-          <a className="navbar-brand" href=" "><img src={logo} /></a>
+          {/* <a className="navbar-brand" href=" "><img src={logo} /></a> */}
           <ul className="navbar-nav">
             <li className="nav-item">
               <a className="nav-link" href="/login">Login</a>

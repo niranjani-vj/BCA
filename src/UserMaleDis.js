@@ -7,35 +7,35 @@ const da = newDate.getDate();
 const month = "0" + (newDate.getMonth() + 1);
 const year = newDate.getFullYear();
 var lat, lng;
+var category
 class UserMaleDis extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             dis: [],
-            lat: null,
-            lng: null
+            category:null
+            // lat: null,
+            // lng: null
         }
     }
 
     handleClick = e => {
         e.preventDefault();
 
-        console.log(lat);
-        console.log(lng);
-        //  const location={
-        //      lat,
-        //      lng
-        //  }
-        //  axios.post('http://localhost:5000/maledis/dist',location)
-        //  .then(res=>console.log(res.data));
+        console.log(category)
+         const categories={
+             category
+         }
+         axios.post('http://localhost:5000/profhousekeeping/dist',categories)
+         .then(res=>console.log(res.data));
         const params = new URLSearchParams();
-        params.append('lat', Number(lat));
-        params.append('lng', Number(lng));
+        // params.append('lat', Number(lat));
+        // params.append('lng', Number(lng));
         // let a = window.confirm("CLick yes....")
         axios({
             method: 'post',
-            url: 'http://localhost:5000/maledis/dist',
+            url: 'http://localhost:5000/profhousekeeping/dist',
             data: params
         })
             .then(res => {
@@ -47,25 +47,26 @@ class UserMaleDis extends Component {
         e.preventDefault();
         alert('Loading');
     }
-    handleloc = e => {
-        navigator.geolocation.watchPosition(getposition);
-        function getposition(position) {
-            lat = position.coords.latitude;
-            lng = position.coords.longitude;
-        }
-        this.tilldate();
-    }
+    // handleloc = e => {
+    //     navigator.geolocation.watchPosition(getposition);
+    //     function getposition(position) {
+    //         lat = position.coords.latitude;
+    //         lng = position.coords.longitude;
+    //     }
+    //     this.tilldate();
+    // }
     tilldate = e => {
         // e.preventDefault();
         let today = `${year}${sep}${month}${sep}${da}`;
-        // alert(`${year}${sep}${month}${sep}${da}`);
-        // alert("Hi");
-        // const params = new URLSearchParams();
-        //  params.append('Owner',this.state.Owner);
+       // alert(`${year}${sep}${month}${sep}${da}`);
+       // alert("Hi");
+        const params = new URLSearchParams();
+         params.append('Owner',this.state.Owner);
         axios({
             method: 'get',
-            url: 'http://localhost:5000/maledis/',
-            //data:params
+            url: 'http://localhost:5000/profhousekeeping/',
+            data:params
+            
         })
             .then(res => {
                 const till = res.data;
@@ -73,14 +74,14 @@ class UserMaleDis extends Component {
                 for (let i = 0; i < till.length; i++) {
                     // alert(till[i]['to']);
                     let to = till[i]['to'].split('T', 1);
-                    // alert(to[0]);
+                    // alert(to[0]);    
                     if (today > to[0]) {
                         //alert(to[0]);
                         const params = new URLSearchParams();
                         params.append('_id', till[i]['_id']);
                         axios({
                             method: 'Post',
-                            url: 'http://localhost:5000/maledis/mdisd',
+                            url: 'http://localhost:5000/profhousekeeping/mdisd',
                             data: params
                         })
                             .then(res => console.log(res.data));
@@ -116,12 +117,13 @@ class UserMaleDis extends Component {
         const diss = this.state.dis.map(ds => (
             <table className="table table-dark" key={ds._id}>
                 <tr><th>Category</th><th>Discount</th><th>From</th><th>TO</th></tr>
-                <tr><td>{ds.Shopname}</td><td>{ds.brand}</td><td>{ds.category}</td><td>{ds.discount}</td><td>{ds.from.slice(0, 10)}</td><td>{ds.to.slice(0, 10)}</td></tr>
+                <tr><td>{ds.category}</td><td>{ds.discount}</td><td>{ds.from.slice(0, 10)}</td><td>{ds.to.slice(0, 10)}</td></tr>
             </table>
         ))
         return (
             <div><br></br>
                 <div>
+                <button type="button" className="btn btn-info" onClick={this.handleClick}>Click Me to View</button>
                     {/* <button type="button" className="btn btn-warning" onClick={this.handleloc}>Location🧿</button> */}
                 </div>
                 <h2 style={{ textAlign: "center" }}>Enjoy the experience!</h2>

@@ -8,7 +8,7 @@ import logo from './logo2.jpg';
         return (
             <div>
           <Nav className="navbar navbar-expand-sm bg-info navbar-light">
-             <a className="navbar-brand" href=" "><img src={logo}/></a>
+             {/* <a className="navbar-brand" href=" "><img src={logo}/></a> */}
              <ul className="navbar-nav">
                <li className="nav-item">
                  <a className="nav-link" id="shoplogin" href="/proflogin">Login</a>

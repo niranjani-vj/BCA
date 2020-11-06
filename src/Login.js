@@ -82,7 +82,7 @@ class Login extends Component {
         return (
             <div>
                 <Nav className="navbar navbar-expand-sm bg-info navbar-light">
-                    <a className="navbar-brand" href=" "><img src={logo} /></a>
+                    {/* <a className="navbar-brand" href=" "><img src={logo} /></a> */}
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <a className="nav-link" href="/userreg">Register</a>

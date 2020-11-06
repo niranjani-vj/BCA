@@ -31,7 +31,7 @@ class ShopFemaleDisView extends Component {
         params.append('Owner', this.state.Owner);
         axios({
             method: 'post',
-            url: 'http://localhost:5000/femaledis/fdis',
+            url: 'http://localhost:5000/profchef/fdis',
             data: params
         })
             .then(res => {
@@ -65,7 +65,7 @@ class ShopFemaleDisView extends Component {
                         params.append('_id', till[i]['_id']);
                         axios({
                             method: 'Post',
-                            url: 'http://localhost:5000/femaledis/fdisd',
+                            url: 'http://localhost:5000/profchef/fdisd',
                             data: params
                         })
                             .then(res => console.log(res.data));
@@ -88,7 +88,7 @@ class ShopFemaleDisView extends Component {
     //      params.append('_id',this.state.id);
     //      axios({
     //          method:'Post',
-    //          url:'http://localhost:5000/femaledis/fdisd',
+    //          url:'http://localhost:5000/profchef/fdisd',
     //          data:params
     //      })
     //      .then(res=>alert(res.data));
@@ -112,7 +112,7 @@ class ShopFemaleDisView extends Component {
             params.append('_id', ad);
             axios({
                 method: 'Post',
-                url: 'http://localhost:5000/femaledis/fdisd',
+                url: 'http://localhost:5000/profchef/fdisd',
                 data: params
             })
                 .then(res => alert(res.data));
