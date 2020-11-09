@@ -104,6 +104,7 @@ class UserMaleDis extends Component {
             const { discount, category, from, to } = ds;
             return (
                 <tr key={ds._id}>
+                    <td>{ds.Owner}</td>
                     <td>{category}</td>
                     <td>{discount}</td>
                     <td>{from.slice(0, 10)}</td>
@@ -116,8 +117,8 @@ class UserMaleDis extends Component {
     render() {
         const diss = this.state.dis.map(ds => (
             <table className="table table-dark" key={ds._id}>
-                <tr><th>Category</th><th>Discount</th><th>From</th><th>TO</th></tr>
-                <tr><td>{ds.category}</td><td>{ds.discount}</td><td>{ds.from.slice(0, 10)}</td><td>{ds.to.slice(0, 10)}</td></tr>
+                <tr><th>Professional's Name</th><th>Category</th><th>Price</th><th>From</th><th>TO</th></tr>
+                <tr><td>{ds.Owner}</td><td>{ds.category}</td><td>{ds.discount}</td><td>{ds.from.slice(0, 10)}</td><td>{ds.to.slice(0, 10)}</td></tr>
             </table>
         ))
         return (
@@ -149,7 +150,7 @@ class UserMaleDis extends Component {
                 </form>
                 <div>
                     <Table key='dis' className="table table-dark">
-                        <thead><td><b>Professional's Name</b></td><td><d>Price</d></td><td><d>From</d></td><td><d>To</d></td></thead>
+                        <thead><td><b>Professional's Name</b></td><th>Category</th><td><d>Price</d></td><td><d>From</d></td><td><d>To</d></td></thead>
                         <tbody>{this.renderTable()}</tbody>
                     </Table>
                 </div>

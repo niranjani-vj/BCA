@@ -101,9 +101,9 @@ class ShopFemaleDis extends Component {
         //     case "brand":
         //         formErrors.brand = value.length < 0 ? "Please enter the brand":"";
         //         break;
-        //    case "discount":
-        //        formErrors.discount = value.length < 0 ? "Please enter the discount":"";
-        //        break;
+           case "discount":
+               formErrors.discount = value.length < 0 ? "Please enter the discount":"";
+               break;
            case "category":
                formErrors.category = value.length<0 ?"Select Category":"";
                break;
@@ -111,28 +111,28 @@ class ShopFemaleDis extends Component {
         //        formErrors.typeofdiscounts = value==null?"Select type of discount you need to enter":"";
         //        break;
                case "from":
-                if(this.state.typeofdiscounts==="ratediscount"){
-                    let asd=this.state.discount;
-                    //alert(asd);
-                let num = parseInt(asd);
-                 if(num > 0 && num <100 ){
-                     console.log('Number')
-                 }
-                 else{
-                     alert("Enter the percentage  Number in discount field.");
-                 }
-                 }
-                if(this.state.typeofdiscounts === "productdiscount"){
-                    let asd = this.state.discount;
-                    let num = parseInt(asd)
-                    //alert(num);
-                    if(parseInt(asd) >0 && num <100 ){
-                        alert("Don't insert Number in Discount field....")
-                    }
-                    else{
-                        console.log('Yes');
-                    }
-                }
+                // if(this.state.typeofdiscounts==="ratediscount"){
+                //     let asd=this.state.discount;
+                //     //alert(asd);
+                // let num = parseInt(asd);
+                //  if(num > 0 && num <100 ){
+                //      console.log('Number')
+                //  }
+                //  else{
+                //      alert("Enter the percentage  Number in discount field.");
+                //  }
+                //  }
+                // if(this.state.typeofdiscounts === "productdiscount"){
+                //     let asd = this.state.discount;
+                //     let num = parseInt(asd)
+                //     //alert(num);
+                //     if(parseInt(asd) >0 && num <100 ){
+                //         alert("Don't insert Number in Discount field....")
+                //     }
+                //     else{
+                //         console.log('Yes');
+                //     }
+                // }
                 let date = value;
                 if (date <`${year}${sep}${month}${sep}${da}`){
                     alert('Invalid date');
@@ -141,8 +141,9 @@ class ShopFemaleDis extends Component {
                 break;
             case "to":
               let to = value;
-              if (to <`${year}${sep}${month}${sep}${da}` || to > `${year}${sep}${mm}${sep}${da}`|| this.state.from > to){
+              if (to <`${year}${sep}${month}${sep}${da}` ||  this.state.from > to){
                   alert('Invalid date');
+                  to=null;
               }
                break;
 

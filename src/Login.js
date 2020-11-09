@@ -69,7 +69,7 @@ class Login extends Component {
                 formErrors.useremailid = emailRegex.test(value) ? "" : "invalid email";
                 break;
             case "userpassword":
-                formErrors.userpassword = value.length < 3 ? "Minimum 3 characters required" : "";
+                formErrors.userpassword = value.length < 3 ? "Minimum 6 characters required" : "";
                 break;
             default:
                 break;
