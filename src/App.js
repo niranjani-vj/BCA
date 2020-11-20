@@ -18,6 +18,7 @@ import Userhome from './Userhome';
 import ShopMaleDisView from './ShopMaleDisView';
 import ShopFemaleDisView from './ShopFemaleDisView';
 import UserMaleDis from './UserMaleDis';
+import BookHousekeeping from './BookHousekeeping';
 import UserFemaleDis from './UserFemaleDis';
 import AdminLogin from './AdminLogin';
 import AdminHome from './AdminHome';
@@ -53,6 +54,7 @@ function App() {
           <Route path="/housekeepingview" component={ShopMaleDisView} />
           <Route path="/chefview" component={ShopFemaleDisView} />
           <Route path="/userhousekeeping" component={UserMaleDis} />
+          <Route path="/BookHousekeeping" component={BookHousekeeping}></Route>
           <Route path="/userchef" component={UserFemaleDis} />
           <Route path="/adminlogin" component={AdminLogin} />
           <Route path="/adminhome" component={AdminHome} />

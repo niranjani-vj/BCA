@@ -46,7 +46,7 @@ class Login extends Component {
             axios.post('http://localhost:5000/usersreg/login', user)
                 .then(res => {
                     if (res.data != null) {
-                        this.props.history.push('/userhome')
+                        this.props.history.push('/userhome',user)
                     }
                     else {
                         this.props.history.push('/userReg')

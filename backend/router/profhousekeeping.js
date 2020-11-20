@@ -44,6 +44,27 @@ router.route('/mdis').post((req,res)=>{
     .then(malediscounts =>res.json(malediscounts))
     .catch(err=>res.status(400).json('Error',+err));
 });
+router.route('/book').post((req,res)=>{
+    var book_id = req.body.bookID
+     console.log("BooK:", book_id," Owner: "+req.body.Owner);
+     //User.findOne({},{'useremailid':useremailid,'userpassword':userpassword})
+     Malediscount.findOne({book_id : req.body.bookID,Owner:req.body.Owner},{})
+     .then(malediscounts =>res.json(malediscounts))
+     .catch(err=>res.status(400).json('Error',+err));
+    // Malediscount.aggregate([
+    //     {
+    //         $lookup:{
+    //             from :"profreg",
+    //             localField: "Owner",
+    //             foreignField : "Owner",
+    //             pipeline : [
+    //                 {$match : {book_id : req.body.bookID,Owner:req.body.Owner}}
+    //             ],
+    //             as : "book_hk"
+    //         }
+    //     }
+    // ])
+ });
 router.route('/mdisd').post((req,res)=>{
     Malediscount.deleteOne({_id:req.body._id})
     .then(()=>res.json('Deleted'))

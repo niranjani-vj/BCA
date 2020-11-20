@@ -26,6 +26,7 @@ const dasRouter = require('./router/Das');
 const malediscountsRouter = require('./router/profhousekeeping');
 const femalediscountsRouter = require('./router/profchef');
 const mapRouter = require('./router/Maps');
+const Book_hk = require('./router/Book_hk');
 app.use('/usersreg',usersregRouter);
 app.use('/profreg',shopsregRouter);
 app.use('/samsreg',samsRouter);
@@ -33,6 +34,7 @@ app.use('/dasreg',dasRouter);
 app.use('/profhousekeeping',malediscountsRouter);
 app.use('/profchef',femalediscountsRouter);
 app.use('/mapu',mapRouter);
+app.use('/book_hk',Book_hk);
 app.listen(port,()=>{ 
     console.log(`Server is connected to the posrt:${port}`);
 });
