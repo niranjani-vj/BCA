@@ -1,6 +1,5 @@
 const router = require('express').Router();
 let book_hk = require('../model/Book_hk');
-
 router.route('/').get((req,res)=>{
     book_hk.find()
     .then(book_hk => res.json(book_hk))
@@ -8,20 +7,20 @@ router.route('/').get((req,res)=>{
 });
 router.route('/add').post((req,res)=>{
     const Owner = req.body.Owner;
-    const User = req.body.User;
-    const Phone = req.body.User;
+    const user = req.body.user;
+    // const phono = req.body.phono;
     const category = req.body.category;
-    const discount = req.body.discount;
+    const price = req.body.price;
     const from = req.body.from;
     const to = req.body.to;
     const time = req.body.time;
     
-    const newBook_hk = new Book_hk({
+    const newBook_hk = new book_hk({
         Owner,
-        User,
-        Phone,
+        user,
+        // phono,
         category,
-        discount,
+        price,
         from,
         to,
         time

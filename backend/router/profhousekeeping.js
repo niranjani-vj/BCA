@@ -1,6 +1,5 @@
 const router = require('express').Router();
 let Malediscount = require('../model/profhousekeeping');
-
 router.route('/').get((req,res)=>{
     Malediscount.find()
     .then(malediscounts => res.json(malediscounts))

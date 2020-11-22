@@ -59,6 +59,7 @@ class ShopFemaleDis extends Component {
         })
             .then(res => {
                 let sd = res.data;
+                console.log(sd)
                 console.log(sd[0]['shopname']);
                 const Shopname = sd[0]['shopname'];
                 // const lat = sd[0]['location']['lat'];

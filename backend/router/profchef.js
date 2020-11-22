@@ -35,7 +35,7 @@ router.route('/add').post((req,res)=>{
     });
     newFemalediscount.save()
     .then(()=>res.json('Discount Added'))
-    .catch(err => res.status(400).json('Error'+err));
+    .catch(err => res.status(err.status >= 100 && err.status < 600 ? err.code : 500).json('Error'+err));
 });
 router.route('/fdis').post((req,res)=>{
     const email= req.body.Owner;

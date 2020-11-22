@@ -5,21 +5,20 @@ const book_hk = new Schema({
         type:String,
         required:true
     },
-    Phone:{
-        type:String,
-        required:true
-    },
-    User:{
-        type:String,
-        required:true
-    },
     
+    user:{
+        type:String,
+        required:true
+    },
+    // phono:{
+    //     type:String
+    // },
     category:{
         type:String,
         required:true
     },
     
-    discount:{
+    price:{
         type:String,
         required:true
     },

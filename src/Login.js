@@ -43,10 +43,13 @@ class Login extends Component {
                 useremailid: this.state.useremailid,
                 userpassword: this.state.userpassword
             }
+            var userID = this.state.useremailid;
+            console.log(userID)
             axios.post('http://localhost:5000/usersreg/login', user)
                 .then(res => {
                     if (res.data != null) {
-                        this.props.history.push('/userhome',user)
+                        localStorage.setItem("Useremail",userID)
+                        this.props.history.push('/userhome')
                     }
                     else {
                         this.props.history.push('/userReg')
