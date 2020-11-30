@@ -131,8 +131,10 @@ class ShopMaleDisView extends Component {
         return (
             <div style={DivStyle}>
                 <div>
-                    <button type="button" className="btn btn-info" onClick={this.handleMaledis}>Click Me to View</button>
+                <br/>
+                    <button type="button" className="btn btn-info btn-block" onClick={this.handleMaledis}>Click Me to View</button>
                 </div>
+                <br/>
                 <div>
                     <Table id='mdis' striped bordered hover variant="dark">
                         <thead><td>NO</td><td>Category</td><td>Price</td><td>From</td><td>To</td></thead>

@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { RadioGroup, RadioButton } from 'react-radio-buttons';
 import Table from 'react-bootstrap/Table';
-import emailjs from 'emailjs-com'
-const mailer = require("nodemailer")
 const sep = "-";
 const newDate = new Date()
 const da = newDate.getDate();
@@ -30,7 +28,7 @@ const DivStyle = {
     color: '#FFF',
     backgroundColor: "#2d6187"
 }
-class BookHousekeeping extends Component {
+class Bookchef extends Component {
     constructor(props) {
         super(props)
 
@@ -90,7 +88,7 @@ class BookHousekeeping extends Component {
             price: this.props.location.state.price,
         }
         console.log(details)
-        axios.post('http://localhost:5000/profhousekeeping/book', details)
+        axios.post('http://localhost:5000/profchef/book', details)
         //  .then(res=>console.log("Details: ",res.data));
         //  .then(res => {
         //     const dis = res.data;
@@ -156,14 +154,11 @@ class BookHousekeeping extends Component {
         if (formValid(this.state)) {
             // alert(this.state.shopname);
             console.log(disf);
-           // this.sendEmail()
             console.log('Form is valid');
-            axios.post('http://localhost:5000/book_hk/add', disf)
+            axios.post('http://localhost:5000/bookchef/add', disf)
                 .then(res => console.log(res.data));
 
             alert("Booked!")
-            
-            //this.sendEmail(Owner,disf.user,disf.category)
             this.props.history.push(`/userhome`)
         }
         else {
@@ -188,7 +183,7 @@ class BookHousekeeping extends Component {
                 const phono = sd[0]['phono'];
                 // const lat = sd[0]['location']['lat'];
                 // const lng = sd[0]['location']['lng'];
-             //   this.setState({ phono });
+                this.setState({ phono });
                 // this.setState({ lat });
                 // this.setState({ lng });
 
@@ -208,62 +203,25 @@ class BookHousekeeping extends Component {
         if (formValid(this.state)) {
             // alert(this.state.shopname);
             console.log(disf);
-           // this.sendEmail()
             console.log('Form is valid');
-            axios.post('http://localhost:5000/book_hk/add', disf)
+            axios.post('http://localhost:5000/bookchef/payment', disf)
                 .then(res => console.log(res.data));
 
-           // alert("Booked!")
-            
-            //this.sendEmail(Owner,disf.user,disf.category)
-            this.props.history.push(`/payment`)
+            // alert("Booked!")
+           // this.props.history.push(`http://localhost:5000/book_hk/payment`,disf)
+           
         }
+     
         else {
             alert("Form is invalid")
         }
 
     }
-        
-
-    
-
-    // sendEmail(e){
-    //     e.preventDefault();
-    //    const { name, value } = e.target;
-    //     emailjs.sendForm('gmail', 'template_i13cjd6', e.target, 'user_8i7yhXUu1ABzUMOs1liPN')
-    //       .then((result) => {
-    //           console.log(result.text);
-    //       }, (error) => {
-    //           console.log(error.text);
-    //       });
-    // }
-
-    // sendEmail = (to,name,type) => {
-    //     const smtpTransport = mailer.createTransport({
-
-    //         service : "Gmail",
-    //         auth:{
-    //             user: "sudharanjani.16@gmail.com",
-    //             pass: "ilikefriendz"
-    //         }
-    //     })
-
-    //     const mail = this.sendEmail(to, name, type)
-
-    //     smtpTransport.sendMail(mail,function(err,res){
-    //         if(err){
-    //             console.log("error")
-    //         }else{
-    //             console.log("Email sent successfully!")
-    //         }
-    //         smtpTransport.close();
-    //     })
-    // }
 
     
     handleBack = e => {
         e.preventDefault();
-        this.props.history.push(`/userhousekeeping`)
+        this.props.history.push(`/userchef`)
     }
     renderTable = e => {
         return this.state.dis.map(bk => {
@@ -293,7 +251,7 @@ class BookHousekeeping extends Component {
 
                         <div>
                             <span className="form-group">Email:</span>
-                            <input type="email" className="form-control" name="owneremailid" value={localStorage.getItem("owner")} disabled='true' id="username" placeholder="Email" />
+                            <input type="email" className="form-control" name="owneremailid" value={this.props.location.state.Owner} disabled='true' id="username" placeholder="Email" />
                         </div>
                         <div className="form-group">
                             <span className="form-group">Services:</span>
@@ -331,7 +289,7 @@ class BookHousekeeping extends Component {
                         <div className="form-group">
                             <br />
                             <button type="submit" className="btn btn-primary " onClick={this.handleSubmit}>Cash on Services (COS)</button> &nbsp;
-                        <button type="submit" className="btn btn-danger " onClick={this.onSubmit}>Online Payment</button> &nbsp;&nbsp;
+                        {/* <button type="submit" className="btn btn-danger " onClick={this.onSubmit}>Online Payment</button> &nbsp;&nbsp; */}
                                <button type="reset" className="btn btn-warning ">Clear</button>&nbsp;&nbsp;
                                <button type="button" className="btn btn-dark btn-middle" onClick={this.handleBack}>Back</button>
                         </div>
@@ -343,4 +301,4 @@ class BookHousekeeping extends Component {
     }
 }
 
-export default BookHousekeeping
+export default Bookchef

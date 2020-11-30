@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const book_hk = new Schema({
+const bookchef = new Schema({
     Owner:{
         type:String,
         required:true
@@ -35,15 +35,15 @@ const book_hk = new Schema({
         required:true
     },
     status:{
-            type:String,
-            default:"Pending!"
-    },
+        type:String,
+        default:"Pending!"
+},
     //  location:{
 
     //  }
 },{
     timestamps:true
 });
-book_hk.index({location:"2dsphere"});
-const Book_hk = mongoose.model('Book_hk',book_hk);
-module.exports=Book_hk;
+bookchef.index({location:"2dsphere"});
+const Bookchef = mongoose.model('bookchef',bookchef);
+module.exports=Bookchef;

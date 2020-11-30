@@ -19,36 +19,51 @@ class UserMaleDis extends Component {
             bookID : null
             // lat: null,
             // lng: null
-        }
-    }
+        };
+        this.handleClick = this.handleClick.bind(this);
+    };
 
-   
+ 
+    
 
     handleClick = e => {
         e.preventDefault();
-
-        console.log(category)
-         const categories={
-             category
-         }
+        console.log("Gellooo");
+        console.log(typeof(this.state.category));
+          let categories={
+              categories:this.state.category};
          axios.post('http://localhost:5000/profhousekeeping/dist',categories)
-         .then(res=>console.log(res.data));
+         .then(res=>{
+            const dis = res.data;
+            this.setState({ dis })
+            console.log("YOOOOOOOOOOO:",this.state.dis)
+         });
         const params = new URLSearchParams();
         // params.append('lat', Number(lat));
         // params.append('lng', Number(lng));
         // let a = window.confirm("CLick yes....")
-        axios({
-            method: 'post',
-            url: 'http://localhost:5000/profhousekeeping/dist',
-            data: params
-        })
-            .then(res => {
-                const dis = res.data;
-                this.setState({ dis })
-            })
+        
+    }
+    handleClicksub= e => {
+        e.preventDefault();
+        console.log(typeof(this.state.category));
+          let categories={
+              categories:this.state.category};
+         axios.post('http://localhost:5000/profhousekeeping/disall',categories)
+         .then(res=>{
+            const dis = res.data;
+            this.setState({ dis })
+            console.log("All:" ,this.state.dis)
+         });
+        const params = new URLSearchParams();
+        // params.append('lat', Number(lat));
+        // params.append('lng', Number(lng));
+        // let a = window.confirm("CLick yes....")
+        
     }
     handleLoad = e => {
         e.preventDefault();
+        
         alert('Loading');
     }
     // handleloc = e => {
@@ -89,6 +104,7 @@ class UserMaleDis extends Component {
                             data: params
                         })
                             .then(res => console.log(res.data));
+                           
                     }
                     else {
                         continue;
@@ -104,6 +120,13 @@ class UserMaleDis extends Component {
         this.props.history.push(`/userhome`)
     }
 
+    handleChange = e => {
+        e.preventDefault();
+        const{name,value} = e.target;
+        this.setState({[name]:value},()=>console.log(this.state));
+    }
+    
+    
     handleBook(book_id,Owner,category,price) {
         console.log("Book")
         //console.log(book_id)
@@ -151,13 +174,14 @@ class UserMaleDis extends Component {
         return (
             <div><br></br>
                 <div>
-                <button type="button" className="btn btn-info" onClick={this.handleClick}>Click Me to View</button>
+                
                     {/* <button type="button" className="btn btn-warning" onClick={this.handleloc}>Location🧿</button> */}
                 </div>
                 <h2 style={{ textAlign: "center" }}>Enjoy the experience!</h2>
-                <form onLoadStart={this.handleLoad}>
+                <form onLoadStart={this.handleLoad  }>
                     <br />
-                    <select name="category" className="form-control btn-outline-info" noValidate onChange={this.handleChange}>
+                   
+                     <select name="category" className="form-control btn-outline-info" noValidate onChange={this.handleChange}> 
                         <option value="">Choose Sub-services</option>
                         <option value="Laundary">Laundary</option>
                         <option value="Vessel_Washing">Vessel Washing</option>
@@ -167,12 +191,12 @@ class UserMaleDis extends Component {
                         <option value="Washroom_Maintenance">Washroom Maintenance</option>
                         <option value="Garden_Cleaning">Garden Cleaning</option>
                         <option value="Festive_Cleaning">Festive Cleaning</option>
-                        <option value="All_Services">All Services</option>
-                        {/* <option value="EthnicWear">Ethnic Wear</option>
+                          {/* <option value="EthnicWear">Ethnic Wear</option>
                     <option value="Fabrics">Fabrics</option>
                     <option value="Winter_SeasonalWear">Winter & Seasonal Wear</option> */}
-                    </select>
-                    {/* <button type="button" className="btn btn-outline-warning btn-block" onClick={this.handleClick}>Sub-Service</button> */}
+                    </select> 
+                    <button type="button" className="btn btn-outline-warning btn-block" onClick={this.handleClicksub}>Search using services</button>
+                    <button type="button" className="btn btn-outline-info btn-block" onClick={this.handleClick}>Click Me to View</button>
                     <button type="button" className="btn btn-outline-light btn-block" onClick={this.handleBack}>Back</button> 
                 </form>
                 <div>

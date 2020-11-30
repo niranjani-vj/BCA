@@ -34,7 +34,7 @@ class AdminLogin extends Component {
         params.append('password', this.state.password);
         axios({
             method: 'post',
-            url: 'http://localhost:5000/dasreg/check',
+            url: 'http://localhost:5000/admin/check',
             data: params
         })
             .then(res => {
@@ -61,6 +61,9 @@ class AdminLogin extends Component {
                         </li> */}
                         <li className="nav-item">
                             <a className="nav-link" href="/home">Home</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/adminreg">Register</a>
                         </li>
                     </ul>
                 </Nav>

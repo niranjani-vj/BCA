@@ -12,20 +12,20 @@ const capitalize = (s) => {
     if (typeof s !== 'string') return ''
     return s.charAt(0).toUpperCase() + s.slice(1)
   }
-class Userhome extends Component {
+class ProfBookings extends Component {
     handleMen = e => {
-        let path = `/userhousekeeping`
-        this.props.history.push(path);
+        let owner = localStorage.getItem("owner")
+        let path = `/profbookinghk`
+        this.props.history.push(path,owner);
     }
     handlewomen = e => {
-        let path = `/userchef`
+        let path = `/profbookingchef`
         this.props.history.push(path);
     }
     
     render() {
-        let userID = localStorage.getItem("Useremail")
-        console.log(userID)
-        let name = userID.split('@gmail.com')
+       let owner = localStorage.getItem("owner")
+        let name = owner.split('@gmail.com')
         return (
 
             <div style={DivStyle}>
@@ -33,25 +33,25 @@ class Userhome extends Component {
                     {/* <a className="navbar-brand" href=" "><img src={logo} /></a> */}
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                        <a className="nav-link" href="/userhome">Welcome {capitalize(name.toString())}</a>
+                        <a className="nav-link" href="/profmainpage">Welcome {capitalize(name.toString())}</a>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" href="/userbookings">My Bookings</a>
+                        <a className="nav-link" href="/profbookings">User's Bookings</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/login">Logout</a>
+                            <a className="nav-link" href="/proflogin">Logout</a>
                         </li>
                     </ul>
                 </Nav>
                 <div className="fcent">
                     <div className="form-group">
-                        <h1 style={{ color: "white" }}> Select the services to book</h1>
+                        <h2 style={{ color: "white" }}> Select the services to view bookings </h2><br></br>
                         <div className="login">
-                            <button type="button" className="btn btn-info btn-block" onClick={this.handleMen}>Housekeeping</button>
+                            <button type="button" className="btn btn-outline-info btn-block" onClick={this.handleMen}>Housekeeping</button>
                         </div>
                         <div className="form-group">
                             <br />
-                            <button type="button" className="btn btn-info btn-block" onClick={this.handlewomen}>Chef</button>
+                            <button type="button" className="btn btn-outline-info btn-block" onClick={this.handlewomen}>Chef</button>
                         </div>
                     </div>
                 </div>
@@ -60,4 +60,4 @@ class Userhome extends Component {
     }
 }
 
-export default Userhome
+export default ProfBookings

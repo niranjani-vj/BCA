@@ -25,6 +25,10 @@ class AdminUsers extends Component {
         const { name, value } = e.target;
         this.setState({ [name]: value }, () => console.log(this.state));
     }
+    handleBack = e => {
+        e.preventDefault();
+        this.props.history.push(`/adminhome`)
+    }
     renderTable = e => {
         return this.state.user.map(da => {
             const { username, userphno, useremailid, createdAt } = da;
@@ -45,10 +49,11 @@ class AdminUsers extends Component {
                 <div className="dcent">
                     <h2 style={{ textAlign: "center" }}>Users</h2>
                     <button type="button" className="btn btn-outline-danger btn-block" onClick={this.handleViewUsers}>View Users</button>
+                  <button type="button" className="btn btn-outline-primary btn-block" onClick={this.handleBack}>Back</button>
                 </div>
                 <div className="tcent">
                     <Table id="user" striped bordered hover variant="dark">
-                        <thead><td><b>Name</b></td><td><b>Email</b></td><td><b>Phno</b>Phno</td><td><b>Created At</b></td></thead>
+                        <thead><td><b>Name</b></td><td><b>Email</b></td><td>Phno</td><td><b>Created At</b></td></thead>
                         <tbody>
                             {this.renderTable()}
                         </tbody>

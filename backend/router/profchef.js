@@ -47,26 +47,44 @@ router.route('/fdis').post((req,res)=>{
     Femalediscount.find({Owner:email})
     .then(femalediscounts=>res.json(femalediscounts));
 });
+router.route('/book').post((req,res)=>{
+    var book_id = req.body.bookID
+     console.log("BooK:", book_id," Owner: "+req.body.Owner);
+     //User.findOne({},{'useremailid':useremailid,'userpassword':userpassword})
+     Femalediscount.findOne({book_id : req.body.bookID,Owner:req.body.Owner},{})
+     .then(malediscounts =>res.json(malediscounts))
+     .catch(err=>res.status(400).json('Error',+err));
+    
+ });
 router.route('/fdisd').post((req,res)=>{
     Femalediscount.deleteOne({_id:req.body._id})
     .then(()=>res.json('Deleted'))
     .catch(err=>res.res.status(400).json('Error'+err));
 });
 router.route('/dist').post((req,res)=>{
-    // let lat =Number(req.body.lat);
-    // let lng = Number(req.body.lng);
-    // let data ={};
-    // data['lat']=lat;
-    // data['lng']=lng;
-   Femalediscount.find({location:{
-       $near:{
-           $maxDistance:1000,
-           $geometry:{
-               type:"Point",
-               coordinates:data
-           }
-       }
-   }})
+    const category=req.body.categories;
+    console.log(category)
+    const sep = "-";
+const newDate = new Date()
+const da = newDate.getDate();
+const month = "0" + (newDate.getMonth() + 1);
+const year = newDate.getFullYear();
+    let today = `${year}${sep}${month}${sep}${da}`;
+    Femalediscount.find({$and:[{from:{$lte:today}},{to:{$gte:today}}]})
+    .then(maps=>res.json(maps))
+    .catch(err=>res.status(400).json('Error'+err));
+
+});
+router.route('/disall').post((req,res)=>{
+    const category=req.body.categories;
+    console.log(category)
+    const sep = "-";
+const newDate = new Date()
+const da = newDate.getDate();
+const month = "0" + (newDate.getMonth() + 1);
+const year = newDate.getFullYear();
+    let today = `${year}${sep}${month}${sep}${da}`;
+    Femalediscount.find({$and:[{from:{$lte:today}},{to:{$gte:today}},{category:req.body.categories}]})
     .then(maps=>res.json(maps))
     .catch(err=>res.status(400).json('Error'+err));
 

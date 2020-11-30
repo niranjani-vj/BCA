@@ -97,58 +97,58 @@ class ShopFemaleDis extends Component {
         e.preventDefault();
         const { name, value } = e.target;
         let formErrors = this.state.formErrors;
-        //  switch(name){
-        //     case "brand":
-        //         formErrors.brand = value.length < 0 ? "Please enter the brand":"";
-        //         break;
-        //    case "discount":
-        //        formErrors.discount = value.length < 0 ? "Please enter the discount":"";
-        //        break;
-        //    case "category":
-        //        formErrors.category = value.length<0 ?"Select Category":"";
-        //        break;
-        //    case "typeofdiscounts":
-        //        formErrors.typeofdiscounts = value==null?"Select type of discount you need to enter":"";
-        //        break;
-        //        case "from":
-        //         if(this.state.typeofdiscounts==="ratediscount"){
-        //             let asd=this.state.discount;
-        //             //alert(asd);
-        //         let num = parseInt(asd);
-        //          if(num > 0 && num <100 ){
-        //              console.log('Number')
-        //          }
-        //          else{
-        //              alert("Enter the percentage  Number in discount field.");
-        //          }
-        //          }
-        //         if(this.state.typeofdiscounts === "productdiscount"){
-        //             let asd = this.state.discount;
-        //             let num = parseInt(asd)
-        //             //alert(num);
-        //             if(parseInt(asd) >0 && num <100 ){
-        //                 alert("Don't insert Number in Discount field....")
-        //             }
-        //             else{
-        //                 console.log('Yes');
-        //             }
-        //         }
-        //         let date = value;
-        //         if (date <`${year}${sep}${month}${sep}${da}`){
-        //             alert('Invalid date');
-        //         }
+         switch(name){
+            case "brand":
+                formErrors.brand = value.length < 0 ? "Please enter the brand":"";
+                break;
+           case "discount":
+               formErrors.discount = value.length < 0 ? "Please enter the discount":"";
+               break;
+           case "category":
+               formErrors.category = value.length<0 ?"Select Category":"";
+               break;
+           case "typeofdiscounts":
+               formErrors.typeofdiscounts = value==null?"Select type of discount you need to enter":"";
+               break;
+               case "from":
+                if(this.state.typeofdiscounts==="ratediscount"){
+                    let asd=this.state.discount;
+                    //alert(asd);
+                let num = parseInt(asd);
+                 if(num > 0 && num <100 ){
+                     console.log('Number')
+                 }
+                 else{
+                     alert("Enter the percentage  Number in discount field.");
+                 }
+                 }
+                if(this.state.typeofdiscounts === "productdiscount"){
+                    let asd = this.state.discount;
+                    let num = parseInt(asd)
+                    //alert(num);
+                    if(parseInt(asd) >0 && num <100 ){
+                        alert("Don't insert Number in Discount field....")
+                    }
+                    else{
+                        console.log('Yes');
+                    }
+                }
+                let date = value;
+                if (date <`${year}${sep}${month}${sep}${da}`){
+                    alert('Invalid date');
+                }
 
-        //         break;
-        //     case "to":
-        //       let to = value;
-        //       if (to <`${year}${sep}${month}${sep}${da}` || to > `${year}${sep}${mm}${sep}${da}`|| this.state.from > to){
-        //           alert('Invalid date');
-        //       }
-        //        break;
+                break;
+            case "to":
+              let to = value;
+              if (to <`${year}${sep}${month}${sep}${da}` || to > `${year}${sep}${mm}${sep}${da}`|| this.state.from > to){
+                  alert('Invalid date');
+              }
+               break;
 
-        //    default:
-        //        break;
-        // }
+           default:
+               break;
+        }
         this.setState({ formErrors, [name]: value }, () => console.log(this.state));
     }
     handleBack = e => {

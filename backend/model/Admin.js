@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const daSchema = new Schema({
+const AdminSchema = new Schema({
     email:{
         type:String,
         required:true
@@ -10,5 +10,5 @@ const daSchema = new Schema({
         required:true
     }
 });
-const dai = mongoose.model('dai',daSchema);
-module.exports=dai;
+const admin = mongoose.model('admin',AdminSchema);
+module.exports=admin;

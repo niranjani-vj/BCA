@@ -5,7 +5,7 @@ import './App.css'
 const DivStyle = {
   width: '100%',
   //height:'100%',
-  height: '100vh',
+  height: '100%',
   backgroundColor: "#2d6187"
 }
 class ShopDisView extends Component {
@@ -56,7 +56,7 @@ class ShopDisView extends Component {
             </li>
           </ul>
         </Nav>
-        <div class="hcent">
+        <div class="fcent">
           <div class="form-wrapper">
             <h1>Select Specific Service</h1><br />
             <div className="login">

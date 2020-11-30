@@ -44,6 +44,8 @@ class Shoplogin extends Component {
                 email: this.state.email,
                 password: this.state.password
             }
+            localStorage.setItem("owner",this.state.email)
+            console.log(localStorage.getItem("owner"))
             var Owner = this.state.email;
             axios.post('http://localhost:5000/profreg/shoplogin', shop)
                 .then(res => {

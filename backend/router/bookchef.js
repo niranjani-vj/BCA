@@ -1,8 +1,8 @@
 const router = require('express').Router();
-let book_hk = require('../model/Book_hk');
+let bookchef = require('../model/bookchef');
 router.route('/').get((req,res)=>{
-    book_hk.find()
-    .then(book_hk => res.json(book_hk))
+    bookchef.find()
+    .then(bookchef => res.json(bookchef))
     .catch(err =>res.status(400).json('Error'+err));
 });
 router.route('/add').post((req,res)=>{
@@ -15,7 +15,7 @@ router.route('/add').post((req,res)=>{
     const to = req.body.to;
     const time = req.body.time;
     
-    const newBook_hk = new book_hk({
+    const newbookchef = new bookchef({
         Owner,
         user,
         // phono,
@@ -25,26 +25,26 @@ router.route('/add').post((req,res)=>{
         to,
         time
     });
-    newBook_hk.save()
+    newbookchef.save()
     .then(()=>res.json('Booked'))
     .catch(err=>res.status(400).json('Error',+err));
 });
 router.route('/disp').post((req,res)=>{
    const user = req.body.user;
    console.log(user)
-    book_hk.find({user : req.body.user})
-    .then(book_hk =>res.json(book_hk))
+    bookchef.find({user : req.body.user})
+    .then(bookchef =>res.json(bookchef))
     .catch(err=>res.status(400).json('Error',+err));
 })
 router.route('/disprof').post((req,res)=>{
-    const Owner = req.body.Owner;
+    const Owner = req.body.owner;
     console.log(Owner)
-     book_hk.find({Owner : req.body.Owner})
-     .then(book_hk =>res.json(book_hk))
+     bookchef.find({Owner : req.body.Owner})
+     .then(bookchef =>res.json(bookchef))
      .catch(err=>res.status(400).json('Error',+err));
  })
 router.route('/mdisd').post((req,res)=>{
-    book_hk.deleteOne({_id:req.body._id})
+    bookchef.deleteOne({_id:req.body._id})
     .then(()=>res.json('Deleted'))
     .catch(err=>res.res.status(400).json('Error'+err));
 });
@@ -52,24 +52,25 @@ router.route('/mdisd').post((req,res)=>{
 router.route('/cancel').post((req,res)=>{
     const id = req.body._id;
     console.log(id)
-    book_hk.remove({_id:req.body._id})
+    bookchef.remove({_id:req.body._id})
     .then(()=>res.json('Deleted'))
     .catch(err=>res.res.status(400).json('Error'+err));
 });
 router.route('/accept').post((req,res)=>{
     const id = req.body._id;
     console.log(id)
-    book_hk.findByIdAndUpdate({_id:req.body._id},{status:"Accepted!"})
+    bookchef.findByIdAndUpdate({_id:req.body._id},{status:"Accepted!"})
     .then(()=>res.json('Accepted!'))
     .catch(err=>res.res.status(400).json('Error'+err));
 })
 router.route('/reject').post((req,res)=>{
     const id = req.body._id;
     console.log(id)
-    book_hk.findByIdAndUpdate({_id:req.body._id},{status:"Rejected!"})
+    bookchef.findByIdAndUpdate({_id:req.body._id},{status:"Rejected!"})
     .then(()=>res.json('Rejected!'))
     .catch(err=>res.res.status(400).json('Error'+err));
 })
+
 
 
 

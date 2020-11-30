@@ -12,13 +12,13 @@ const capitalize = (s) => {
     if (typeof s !== 'string') return ''
     return s.charAt(0).toUpperCase() + s.slice(1)
   }
-class Userhome extends Component {
+class UserBookings extends Component {
     handleMen = e => {
-        let path = `/userhousekeeping`
+        let path = `/userbookinghk`
         this.props.history.push(path);
     }
     handlewomen = e => {
-        let path = `/userchef`
+        let path = `/userbookingchef`
         this.props.history.push(path);
     }
     
@@ -45,13 +45,13 @@ class Userhome extends Component {
                 </Nav>
                 <div className="fcent">
                     <div className="form-group">
-                        <h1 style={{ color: "white" }}> Select the services to book</h1>
+                        <h2 style={{ color: "white" }}> Select the services to view bookings </h2><br></br>
                         <div className="login">
-                            <button type="button" className="btn btn-info btn-block" onClick={this.handleMen}>Housekeeping</button>
+                            <button type="button" className="btn btn-outline-info btn-block" onClick={this.handleMen}>Housekeeping</button>
                         </div>
                         <div className="form-group">
                             <br />
-                            <button type="button" className="btn btn-info btn-block" onClick={this.handlewomen}>Chef</button>
+                            <button type="button" className="btn btn-outline-info btn-block" onClick={this.handlewomen}>Chef</button>
                         </div>
                     </div>
                 </div>
@@ -60,4 +60,4 @@ class Userhome extends Component {
     }
 }
 
-export default Userhome
+export default UserBookings

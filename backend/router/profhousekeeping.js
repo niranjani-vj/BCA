@@ -50,26 +50,18 @@ router.route('/book').post((req,res)=>{
      Malediscount.findOne({book_id : req.body.bookID,Owner:req.body.Owner},{})
      .then(malediscounts =>res.json(malediscounts))
      .catch(err=>res.status(400).json('Error',+err));
-    // Malediscount.aggregate([
-    //     {
-    //         $lookup:{
-    //             from :"profreg",
-    //             localField: "Owner",
-    //             foreignField : "Owner",
-    //             pipeline : [
-    //                 {$match : {book_id : req.body.bookID,Owner:req.body.Owner}}
-    //             ],
-    //             as : "book_hk"
-    //         }
-    //     }
-    // ])
+    
  });
 router.route('/mdisd').post((req,res)=>{
     Malediscount.deleteOne({_id:req.body._id})
     .then(()=>res.json('Deleted'))
     .catch(err=>res.res.status(400).json('Error'+err));
 });
+
+
 router.route('/dist').post((req,res)=>{
+    const category=req.body.categories;
+    console.log(category)
     const sep = "-";
 const newDate = new Date()
 const da = newDate.getDate();
@@ -77,23 +69,20 @@ const month = "0" + (newDate.getMonth() + 1);
 const year = newDate.getFullYear();
     let today = `${year}${sep}${month}${sep}${da}`;
     Malediscount.find({$and:[{from:{$lte:today}},{to:{$gte:today}}]})
-//     // let lat =Number(req.body.lat);
-//     // let lng = Number(req.body.lng);
-    // let data ={};
-//     // data['lat']=lat;
-//     // data['lng']=lng;
-//         let category = (req.body.category)
+    .then(maps=>res.json(maps))
+    .catch(err=>res.status(400).json('Error'+err));
 
-//         console.log(category)
-//    Malediscount.find({category:{
-//        $near:{
-//            $maxDistance:1000,
-//            $geometry:{
-//                type:"Point",
-//                coordinates:data
-//            }
-//        }
-//    }})
+});
+router.route('/disall').post((req,res)=>{
+    const category=req.body.categories;
+    console.log(category)
+    const sep = "-";
+const newDate = new Date()
+const da = newDate.getDate();
+const month = "0" + (newDate.getMonth() + 1);
+const year = newDate.getFullYear();
+    let today = `${year}${sep}${month}${sep}${da}`;
+    Malediscount.find({$and:[{from:{$lte:today}},{to:{$gte:today}},{category:req.body.categories}]})
     .then(maps=>res.json(maps))
     .catch(err=>res.status(400).json('Error'+err));
 

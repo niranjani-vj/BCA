@@ -22,19 +22,21 @@ connection.once('open',()=>{
 const usersregRouter = require('./router/usersreg');
 const shopsregRouter = require('./router/profreg');
 const samsRouter = require('./router/Sams');
-const dasRouter = require('./router/Das');
+const adminRouter = require('./router/Admin');
 const malediscountsRouter = require('./router/profhousekeeping');
 const femalediscountsRouter = require('./router/profchef');
 const mapRouter = require('./router/Maps');
 const Book_hk = require('./router/Book_hk');
+const bookchef = require('./router/bookchef');
 app.use('/usersreg',usersregRouter);
 app.use('/profreg',shopsregRouter);
 app.use('/samsreg',samsRouter);
-app.use('/dasreg',dasRouter);
 app.use('/profhousekeeping',malediscountsRouter);
 app.use('/profchef',femalediscountsRouter);
 app.use('/mapu',mapRouter);
+app.use('/admin',adminRouter);
 app.use('/book_hk',Book_hk);
+app.use('/bookchef',bookchef);
 app.listen(port,()=>{ 
     console.log(`Server is connected to the posrt:${port}`);
 });

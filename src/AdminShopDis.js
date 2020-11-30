@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import { Nav } from 'react-bootstrap';
 const divStyle = {
     width: '100%',
     height: '100%',
@@ -40,8 +41,7 @@ class AdminShopDis extends Component {
             const { Shopname, brand, category, from, to } = ds;
             return (
                 <tr key={ds._id}>
-                    <td>{Shopname}</td>
-                    <td>{brand}</td>
+                 
                     <td>{category}</td>
                     <td>{from.slice(0, 10)}</td>
                     <td>{to.slice(0, 10)}</td>
@@ -54,8 +54,7 @@ class AdminShopDis extends Component {
             const { Shopname, brand, category, from, to } = ms;
             return (
                 <tr key={ms._id}>
-                    <td>{Shopname}</td>
-                    <td>{brand}</td>
+                    
                     <td>{category}</td>
                     <td>{from.slice(0, 10)}</td>
                     <td>{to.slice(0, 10)}</td>
@@ -69,12 +68,21 @@ class AdminShopDis extends Component {
         return (
             <div style={divStyle}>
                 <div>
-                    <button type="button" className="btn btn-primary btn-block " onClick={this.handleMen}>View Discount</button>
+                <Nav className="navbar navbar-expand-sm bg-info navbar-light">
+                    
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <a className="nav-link" href="/home">Logout</a>
+                        </li>
+                    </ul>
+                </Nav>
+                <br/> 
+                    <button type="button" className="btn btn-primary btn-block " onClick={this.handleMen}>View Services</button>
 
                 </div>
                 <div>
                     <Table id="fdis" striped bordered hover variant="dark">
-                        <thead><td><b>Shop Name</b></td><td><b>Brand</b></td><td><b>Category</b>Phno</td><td><b>From</b></td><td><b>TO</b></td></thead>
+                        <thead><td><b>Name of all services</b></td><td><b>From</b></td><td><b>TO</b></td></thead>
                         <tbody>
                             {this.renderTable()}
                             {this.renderTab()}

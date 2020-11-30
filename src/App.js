@@ -15,6 +15,7 @@ import ShopFemaleDis from './ShopFemaleDis'
 import ShopMainPage from './ShopMainPage';
 import ShopDisView from './ShopDisView';
 import Userhome from './Userhome';
+import UserBookings from './UserBookings';
 import ShopMaleDisView from './ShopMaleDisView';
 import ShopFemaleDisView from './ShopFemaleDisView';
 import UserMaleDis from './UserMaleDis';
@@ -26,7 +27,14 @@ import AdminUsers from './AdminUsers';
 import AdminShopOwners from './AdminShopOwners';
 import AdminShopDis from './AdminShopDis';
 //import Shop from './1.jpg';
-//import Payment from './Payment';
+import Payment from './Payment';
+import UserBookingHK from './UserbookingHK';
+import ProfBookings from './ProfBookings';
+import Bookchef from './Bookchef';
+import Userbookingchef from './Userbookingchef';
+import Profbookinghk from './Profbookinghk';
+import Profbookingchef from './Profbookingchef';
+import adminreg from './adminreg';
 const DivStyle = {
   //width:'100%',
   //height:'100%',
@@ -52,15 +60,24 @@ function App() {
           <Route path="/profview" component={ShopDisView} />
           <Route path="/userhome" component={Userhome} />
           <Route path="/housekeepingview" component={ShopMaleDisView} />
+          <Route path="/profbookings" component={ProfBookings} />
           <Route path="/chefview" component={ShopFemaleDisView} />
           <Route path="/userhousekeeping" component={UserMaleDis} />
+          <Route path="/userbookinghk" component={UserBookingHK} />
+          <Route path="/userbookingchef" component={Userbookingchef} />
+          <Route path="/BookChef" component={Bookchef} />
           <Route path="/BookHousekeeping" component={BookHousekeeping}></Route>
           <Route path="/userchef" component={UserFemaleDis} />
+          <Route path="/userbookings" component={UserBookings} />
+          <Route path="/payment" component={Payment} />
           <Route path="/adminlogin" component={AdminLogin} />
           <Route path="/adminhome" component={AdminHome} />
           <Route path="/adminusers" component={AdminUsers} />
           <Route path="/adminshopowners" component={AdminShopOwners} />
           <Route path="/adminshopdis" component={AdminShopDis} />
+          <Route path="/profbookinghk" component={Profbookinghk} />
+          <Route path="/profbookingchef" component={Profbookingchef} />
+          <Route path="/adminreg" component= {adminreg} />
           <Route exact path="/" component={Navu}>
             <Redirect to="/home" />
           </Route>
