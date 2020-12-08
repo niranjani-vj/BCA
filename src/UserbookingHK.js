@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
-const mailer = require("nodemailer")
+const BG = require('./cleanlogo.png');
+const DivStyle = {
+    width: '100%',
+    //height:'100%',
+    height: '100vh',
+    backgroundImage:`url(${BG})`
+}
 const sep = "-";
 const newDate = new Date()
 const da = newDate.getDate();
@@ -119,6 +125,7 @@ class UserBookingHK extends Component {
     }
 
     handleCancel(book_id,Owner,category,price){
+       // window.oncancel = () => 'Are you sure?';
         console.log(book_id)
         const params = new URLSearchParams();
         params.append('_id',book_id)

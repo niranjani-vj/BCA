@@ -204,10 +204,11 @@ class Bookchef extends Component {
             // alert(this.state.shopname);
             console.log(disf);
             console.log('Form is valid');
-            axios.post('http://localhost:5000/bookchef/payment', disf)
+            axios.post('http://localhost:5000/bookchef/add', disf)
                 .then(res => console.log(res.data));
 
             // alert("Booked!")
+            this.props.history.push(`/payment`)
            // this.props.history.push(`http://localhost:5000/book_hk/payment`,disf)
            
         }
@@ -289,7 +290,7 @@ class Bookchef extends Component {
                         <div className="form-group">
                             <br />
                             <button type="submit" className="btn btn-primary " onClick={this.handleSubmit}>Cash on Services (COS)</button> &nbsp;
-                        {/* <button type="submit" className="btn btn-danger " onClick={this.onSubmit}>Online Payment</button> &nbsp;&nbsp; */}
+                        <button type="submit" className="btn btn-danger " onClick={this.onSubmit}>Online Payment</button> &nbsp;&nbsp;
                                <button type="reset" className="btn btn-warning ">Clear</button>&nbsp;&nbsp;
                                <button type="button" className="btn btn-dark btn-middle" onClick={this.handleBack}>Back</button>
                         </div>

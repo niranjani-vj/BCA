@@ -49,7 +49,7 @@ class ShopFemaleDis extends Component {
     }
     handleSubmit = e => {
         e.preventDefault();
-        var Owner = this.props.location.state.Shop;
+        var Owner = localStorage.getItem("owner");
         const params = new URLSearchParams();
         params.append('email', Owner);
         axios({
@@ -135,16 +135,18 @@ class ShopFemaleDis extends Component {
                 //     }
                 // }
                 let date = value;
-                if (date <`${year}${sep}${month}${sep}${da}`){
+                console.log(`${year}${sep}${month}${sep}${da}`)
+                if (this.state.from <= `${year}${sep}${month}${sep}${da}` ){
                     alert('Invalid date');
+                    date="";
                 }
 
                 break;
             case "to":
               let to = value;
-              if (to <`${year}${sep}${month}${sep}${da}` ||  this.state.from > to){
+              if (to <=`${year}${sep}${month}${sep}${da}` ||  this.state.from > to){
                   alert('Invalid date');
-                  to=null;
+                  to="";
               }
                break;
 
@@ -154,7 +156,7 @@ class ShopFemaleDis extends Component {
         this.setState({ formErrors, [name]: value }, () => console.log(this.state));
     }
     handleBack = e => {
-        let Owner = this.props.location.state.Shop;
+        let Owner = localStorage.getItem("owner");
         let path = `/addprof`
         this.props.history.push(path, { Shop: Owner });
     }
@@ -168,7 +170,7 @@ class ShopFemaleDis extends Component {
                         {/* <h1>Enter Detalis to post Your discount</h1> */}
                         <form onSubmit={this.handleSubmit} noValidate>
                             <div className="form-group">
-                                <select name="category" className="form-control" noValidate onChange={this.handleChange}>
+                                <select name="category" id="category" className="form-control" noValidate onChange={this.handleChange}>
                                     <option value="">Choose Sub-services</option>
                                     <option value="Laundary">Laundary</option>
                                     <option value="Vessel_Washing">Vessel Washing</option>
@@ -199,11 +201,11 @@ class ShopFemaleDis extends Component {
                             </div>
                             <div>
                                 <span className="form-group">From:</span>
-                                <input type="date" name="from" className="form-control" onChange={this.handleChange} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="date" id="fromDate" name="from" className="form-control" onChange={this.handleChange} />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                </div>
                             <div>
                                 <span className="form-group">TO:</span>
-                                <input type="date" name="to" className="form-control" onChange={this.handleChange} />
+                                <input type="date" name="to" id="toDate" className="form-control" onChange={this.handleChange} />
                             </div>
                             <div className="form-group">
                                 <br />

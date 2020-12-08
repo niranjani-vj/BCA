@@ -93,8 +93,9 @@ class UserMaleDis extends Component {
                 for (let i = 0; i < till.length; i++) {
                     // alert(till[i]['to']);
                     let to = till[i]['to'].split('T', 1);
+                    let from = till[i]['from'].split('T',1)
                     // alert(to[0]);    
-                    if (today > to[0]) {
+                    if (today > to[0] && today <= from[0]) {
                         //alert(to[0]);
                         const params = new URLSearchParams();
                         params.append('_id', till[i]['_id']);

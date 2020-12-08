@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import './App.css';
 import { Nav } from 'react-bootstrap';
 import logo from './logo2.jpg';
+const BG = require('./users.jpg');
 const DivStyle = {
     width: '100%',
     //height:'100%',
     height: '100vh',
-    backgroundColor: "#2d6187"
+    backgroundImage:`url(${BG})`
 }
 const capitalize = (s) => {
     if (typeof s !== 'string') return ''
@@ -43,9 +44,11 @@ class Userhome extends Component {
                         </li>
                     </ul>
                 </Nav>
+                
                 <div className="fcent">
                     <div className="form-group">
-                        <h1 style={{ color: "white" }}> Select the services to book</h1>
+                    <br/><br/><br/><br/><br/>
+                        <h1 style={{ color: "black" }}> Select the services to book</h1>
                         <div className="login">
                             <button type="button" className="btn btn-info btn-block" onClick={this.handleMen}>Housekeeping</button>
                         </div>

@@ -21,10 +21,10 @@ router.route('/add').post((req,res)=>{
     .catch(err => res.status(400).json('Error:'+err));
 });
 router.route('/login').post((req,res)=>{
-    var useremailid= req.body.useremailid;
-    var userpassword=req.body.userpassword;
-    User.findOne({},{'useremailid':useremailid,'userpassword':userpassword})
-    .then(users => res.json(users));
+    var email = req.body.useremailid;
+    var password = req.body.userpassword;
+    User.findOne({ 'useremailid': email, 'userpassword': password }, { useremailid: 1 })
+        .then(user => res.json(user));
 });
 router.route('/userd').post((req,res)=>{
     User.deleteOne({_id:req.body._id})

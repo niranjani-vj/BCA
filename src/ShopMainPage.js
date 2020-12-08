@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo2.jpg';
-
+const BG = require('./professional-workers.jpg');
 const DivStyle = {
   width: '100%',
   //height:'100%',
   height: '100vh',
-  backgroundColor: "#2d6187"
-}
+  backgroundImage:`url(${BG})`
+};
+
 const capitalize = (s) => {
   if (typeof s !== 'string') return ''
   return s.charAt(0).toUpperCase() + s.slice(1)
@@ -62,7 +63,8 @@ class ShopMainPage extends Component {
         <br /><br></br>
         <div className="fcent">
         <div className="form-group">
-                        <h1 style={{ color: "white" }}> Select the services</h1>
+        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <h1 style={{ color: "black" }}> Select the services</h1>
                         <div className="login">
           <button type="button" className="btn btn-primary btn-block" onClick={this.handleAddDiscount}>Add Services</button>
           </div><br></br>

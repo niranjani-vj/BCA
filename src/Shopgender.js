@@ -3,13 +3,14 @@ import { Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import logo from './logo2.jpg';
-
+const BG = require('./professional-workers.jpg');
 const DivStyle = {
   width: '100%',
   //height:'100%',
   height: '100vh',
-  backgroundColor: "#2d6187"
-}
+  backgroundImage:`url(${BG})`
+};
+
 class Shopgender extends Component {
   handleMen = e => {
     var Owner = this.props.location.state.Shop;
@@ -44,8 +45,8 @@ class Shopgender extends Component {
         </Nav>
 
         <div className="container">
-          <div className="fcent">
-            <h1>Select Specific Service</h1><br />
+          <div className="fcent"><br/><br/><br/><br/><br/><br/><br/><br/>
+            <h1>Select specific service to add</h1>
             <button type="button" className="btn btn-outline-info btn-block" onClick={this.handleMen}>Housekeeping</button>
             <button type="button" className="btn btn-outline-info btn-block" onClick={this.handleFemale}>Chef</button>
             <button type="button" className="btn btn-outline-dark btn-block" onClick={this.handleBack}>Back</button>

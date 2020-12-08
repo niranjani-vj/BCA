@@ -3,6 +3,13 @@ import './App.css';
 import {Nav} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo2.jpg';
+const BG = require('./users.jpg');
+const DivStyle = {
+  width:'100%',
+  //height:'100%',
+  height: '750px',
+  backgroundImage:`url(${BG})`
+}
 class Navu extends Component {
     render() {
         return (
@@ -21,10 +28,12 @@ class Navu extends Component {
                </li>
              </ul>
            </Nav>
-           <div className="container">
-           <section>
+           <div className="container" style={DivStyle}>
+           <section >
              <h1>
-               <span>W</span>
+             <br/><br/>
+             Welcome To Blue Collar Assist
+               {/* <span>W</span>
                <span>E</span>
                <span>L</span>
                <span>C</span>
@@ -52,7 +61,7 @@ class Navu extends Component {
                 <span>S</span>
                 <span>I</span>
                 <span>S</span>
-                <span>T</span>
+                <span>T</span> */}
              </h1>
            </section>
            </div>

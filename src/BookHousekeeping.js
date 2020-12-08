@@ -49,28 +49,43 @@ class BookHousekeeping extends Component {
         e.preventDefault();
         const { name, value } = e.target;
         let formErrors = this.state.formErrors;
-        // switch (name) {
-        //     case "name":
-        //         formErrors.name = value.length < 3 ? "Minimum 3 characters required" : "";
-        //         break;
-        //     // case "shopname":
-        //     //     formErrors.shopname = value.length < 3 ? "Minimum of 3 characters required" : "";
-        //     //     break;
-        //     // case "gstno":
-        //     //     formErrors.gstno = gstregx.test(value) ? "" : "Invalid GST Number";
-        //     //     break;;
-        //     case "phono":
-        //         formErrors.phono = value.length === 10 && value === Number ? "Invalid Phone Number" : "";
-        //         break;
-        //     case "email":
-        //         formErrors.email = emailRegex.test(value) ? "" : "Invalid Email-id";
-        //         break;
-        //     case "password":
-        //         formErrors.password = value.length < 6 ? "Minimum  6 characters required" : "";
-        //         break;
-        //     default:
-        //         break;
-        // }
+        switch (name) {
+            //     case "name":
+            //         formErrors.name = value.length < 3 ? "Minimum 3 characters required" : "";
+            //         break;
+            //     // case "shopname":
+            //     //     formErrors.shopname = value.length < 3 ? "Minimum of 3 characters required" : "";
+            //     //     break;
+            //     // case "gstno":
+            //     //     formErrors.gstno = gstregx.test(value) ? "" : "Invalid GST Number";
+            //     //     break;;
+            //     case "phono":
+            //         formErrors.phono = value.length === 10 && value === Number ? "Invalid Phone Number" : "";
+            //         break;
+            //     case "email":
+            //         formErrors.email = emailRegex.test(value) ? "" : "Invalid Email-id";
+            //         break;
+            //     case "password":
+            //         formErrors.password = value.length < 6 ? "Minimum  6 characters required" : "";
+            //         break;
+            case "from":
+                let date = value;
+                console.log(`${year}${sep}${month}${sep}${da}`)
+                if (this.state.from <= `${year}${sep}${month}${sep}${da}`) {
+                    alert('Invalid date');
+                    date = "";
+                }
+                break;
+            case "to":
+                let to = value;
+                if (to <= `${year}${sep}${month}${sep}${da}` || this.state.from > to) {
+                    alert('Invalid date');
+                    to = "";
+                }
+                break;
+            default:
+                break;
+        }
         this.setState({ formErrors, [name]: value }, () => console.log(this.state));
     }
 
@@ -136,7 +151,7 @@ class BookHousekeeping extends Component {
                 const phono = sd[0]['phono'];
                 // const lat = sd[0]['location']['lat'];
                 // const lng = sd[0]['location']['lng'];
-             //   this.setState({ phono });
+                //   this.setState({ phono });
                 // this.setState({ lat });
                 // this.setState({ lng });
 
@@ -156,13 +171,13 @@ class BookHousekeeping extends Component {
         if (formValid(this.state)) {
             // alert(this.state.shopname);
             console.log(disf);
-           // this.sendEmail()
+            // this.sendEmail()
             console.log('Form is valid');
             axios.post('http://localhost:5000/book_hk/add', disf)
                 .then(res => console.log(res.data));
 
             alert("Booked!")
-            
+
             //this.sendEmail(Owner,disf.user,disf.category)
             this.props.history.push(`/userhome`)
         }
@@ -188,7 +203,7 @@ class BookHousekeeping extends Component {
                 const phono = sd[0]['phono'];
                 // const lat = sd[0]['location']['lat'];
                 // const lng = sd[0]['location']['lng'];
-             //   this.setState({ phono });
+                //   this.setState({ phono });
                 // this.setState({ lat });
                 // this.setState({ lng });
 
@@ -208,13 +223,13 @@ class BookHousekeeping extends Component {
         if (formValid(this.state)) {
             // alert(this.state.shopname);
             console.log(disf);
-           // this.sendEmail()
+            // this.sendEmail()
             console.log('Form is valid');
             axios.post('http://localhost:5000/book_hk/add', disf)
                 .then(res => console.log(res.data));
 
-           // alert("Booked!")
-            
+            // alert("Booked!")
+
             //this.sendEmail(Owner,disf.user,disf.category)
             this.props.history.push(`/payment`)
         }
@@ -223,9 +238,9 @@ class BookHousekeeping extends Component {
         }
 
     }
-        
 
-    
+
+
 
     // sendEmail(e){
     //     e.preventDefault();
@@ -260,7 +275,7 @@ class BookHousekeeping extends Component {
     //     })
     // }
 
-    
+
     handleBack = e => {
         e.preventDefault();
         this.props.history.push(`/userhousekeeping`)
@@ -325,8 +340,8 @@ class BookHousekeeping extends Component {
                             </select>
                         </div>
                         <div>
-                      <br></br>
-                       
+                            <br></br>
+
                         </div>
                         <div className="form-group">
                             <br />

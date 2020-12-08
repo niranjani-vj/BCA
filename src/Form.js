@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Nav } from 'react-bootstrap';
 // import logo from './logo2.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
+const PhonePattern=RegExp("[0-9]{3}-[0-9]{3}-[0-9]{4}")
 const emailRegex = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
@@ -53,6 +54,7 @@ class Form extends Component {
 
     }
     else {
+      alert("Form is invalid! ");
       console.log('Form is invalid')
     }
   }
@@ -67,7 +69,7 @@ class Form extends Component {
         formErrors.username = value.length < 3 ? "Minimun 3 characters required" : "";
         break;
       case "userphno":
-        formErrors.userphno = value.length === 10 && value === Number ? "10 Numbers  required" : "";
+        formErrors.userphno = value.length === 10 && value === Number ? "Only 10 Numbers required" : "";
         break;
       case "useremailid":
         formErrors.useremailid = emailRegex.test(value) ? "" : "invalid email";

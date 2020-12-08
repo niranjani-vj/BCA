@@ -3,6 +3,12 @@ import './App.css';
 import {Nav} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo2.jpg';
+const BG = require('./professional-workers.jpg');
+var sectionStyle = {
+  width: "100%",
+  height: "400px",
+  backgroundImage:`url(${BG})`
+};
  class Navs extends Component {
     render() {
         return (
@@ -21,10 +27,12 @@ import logo from './logo2.jpg';
                </li>
              </ul>
            </Nav>
-      <div className="wrapper">
-      <section>
+      <div className="wrapper" >
+      <section style={ sectionStyle }>
         <h1>
-          <span>W</span>
+        <br/><br/><br/><br/><br/>
+        Welcome To Blue Collar Assist
+          {/* <span>W</span>
           <span>E</span>
           <span>L</span>
           <span>C</span>
@@ -52,7 +60,7 @@ import logo from './logo2.jpg';
           <span>S</span>
           <span>I</span>
           <span>S</span>
-          <span>T</span>
+          <span>T</span> */}
         </h1>
       </section>
       </div>

@@ -62,13 +62,15 @@ class AdminLogin extends Component {
                         <li className="nav-item">
                             <a className="nav-link" href="/home">Home</a>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <a className="nav-link" href="/adminreg">Register</a>
-                        </li>
+                        </li> */}
                     </ul>
                 </Nav>
-                <div className="container">
-                    <h1 style={{ textAlign: "center" }}>Login</h1>
+                <div className="container"><br/>
+                    
+                    <div className="cent">
+                    <h1 style={{ textAlign: "center" }}>Admin Login</h1>
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
                             <input type="email" placeholder="Email-id" className="form-control" name="email" onChange={this.handleChange} />
@@ -81,6 +83,7 @@ class AdminLogin extends Component {
                             <button type="reset" className="btn btn-outline-danger btn-block">Reset</button>
                         </div>
                     </form>
+                    </div>
                 </div>
 
             </div>

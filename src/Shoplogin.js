@@ -49,6 +49,7 @@ class Shoplogin extends Component {
             var Owner = this.state.email;
             axios.post('http://localhost:5000/profreg/shoplogin', shop)
                 .then(res => {
+                    console.log(res.data)
                     if (res.data != null) {
                         //alert('Exist');
 
@@ -110,7 +111,7 @@ class Shoplogin extends Component {
                             </div>
                             <div className="form-group" >
                                 {/* <button type="submit" className="btn btn-outline-primary btn-block">Login</button><br/> */}
-                                <Button variant="primary" type="submit">
+                                <Button variant="primary" type="submit" name="submit">
                                     Submit
                          </Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                          <Button variant="danger" type="reset">

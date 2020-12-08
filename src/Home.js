@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import { Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-import logo from './logo2.jpg';
+import logo from './professional-workers.jpg';
+const BG = require('./homeservices.jpg');
+var sectionStyle = {
+  width: "100%",
+  height: "400px",
+  backgroundImage:`url(${BG})`
+};
+
 class Home extends Component {
   render() {
     return (
@@ -21,11 +28,15 @@ class Home extends Component {
             </li>
           </ul>
         </Nav>
-        <div className="container">
+        <div className="container" style={ sectionStyle }> 
           {/* blue collar assist */}
+          
           <section>
+          
             <h1>
-              <span>B</span>
+            <br/><br/><br/><br/>
+           &nbsp; Blue Collar Assist
+              {/* <span>B</span>
               <span>L</span>
               <span>U</span>
               <span>E</span>
@@ -42,7 +53,7 @@ class Home extends Component {
               <span>S</span>
               <span>I</span>
               <span>S</span>
-              <span>T</span>
+              <span>T</span> */}
 
             </h1>
           </section>

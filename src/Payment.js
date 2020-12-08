@@ -29,7 +29,7 @@ const divStyle = {
 
     handleBack = e => {
         e.preventDefault();
-        this.props.history.push(`/userhousekeeping`)
+        this.props.history.push(`/userhome`)
     }
 }
 

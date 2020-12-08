@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { Nav } from 'react-bootstrap';
 import logo from './logo2.jpg';
 import './App.css'
+const BG = require('./professional-workers.jpg');
 const DivStyle = {
   width: '100%',
   //height:'100%',
-  height: '100%',
-  backgroundColor: "#2d6187"
-}
+  height: '100vh',
+  backgroundImage:`url(${BG})`
+};
 class ShopDisView extends Component {
   constructor(props) {
     super(props)
@@ -57,17 +58,16 @@ class ShopDisView extends Component {
           </ul>
         </Nav>
         <div class="fcent">
-          <div class="form-wrapper">
-            <h1>Select Specific Service</h1><br />
+          <div class="form-wrapper"><br/><br/><br/><br/><br/><br/><br/><br/>
+            <h1>Select specific service to view</h1>
             <div className="login">
               <button type="button" className="btn btn-outline-info btn-block" onClick={this.handleMen}>Housekeeping</button>
             </div>
             <div className="login">
-              <br />
+              
               <button type="button" className="btn btn-outline-info btn-block" onClick={this.handleFemale}>Chef</button>
             </div>
             <div>
-              <br />
               <button type="button" className="btn btn-outline-dark btn-block" onClick={this.handleBack}>Back</button>
             </div>
           </div>

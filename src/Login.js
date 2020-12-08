@@ -4,12 +4,13 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav } from 'react-bootstrap';
 import logo from './logo2.jpg';
+//const BG = require('./users.jpg');
 
 const DivStyle = {
     //width:'100%',
     //height:'100%',
     height: '750px',
-    backgroundColor: "#2d6187"
+    //backgroundImage:`url(${BG})`
 }
 const emailRegex = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 const formValid = ({ formErrors, ...rest }) => {
@@ -47,11 +48,13 @@ class Login extends Component {
             console.log(userID)
             axios.post('http://localhost:5000/usersreg/login', user)
                 .then(res => {
+                    console.log(res.data)
                     if (res.data != null) {
                         localStorage.setItem("Useremail",userID)
                         this.props.history.push('/userhome')
                     }
                     else {
+                        alert("Wrong Login Id.. ");
                         this.props.history.push('/userReg')
                     }
                 })
